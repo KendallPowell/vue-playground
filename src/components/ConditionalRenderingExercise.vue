@@ -1,5 +1,5 @@
 <template>
-  <div class="condtional-rendering-exercise container">
+  <div class="conditional-rendering-exercise container">
     <div class="row">
       <div class="col-12">
         <div class="border p-1">
@@ -10,7 +10,7 @@
             screen.
           </p>
           <!-- add code to element below -->
-          <div class="player-card text-center">
+          <div class="player-card text-center" v-if="false">
             <div>
               <img :src="state.player.photo" />
             </div>
@@ -38,7 +38,7 @@
             toggle the value to true to get it to show up again.
           </p>
           <!-- add code to element below -->
-          <div class="player-card text-center">
+          <div class="player-card text-center" v-if="showPlayer">
             <div>
               <img :src="state.player.photo" />
             </div>
@@ -67,23 +67,23 @@
             to add another condition.
           </p>
           <!-- v-if comparing grade and 90 -->
-          <div>
+          <div v-if="(grade === 90)">
             <p>The grade is 'A'.</p>
           </div>
           <!-- v-else-if comparing grade and 80 -->
-          <div>
+          <div v-else-if="(grade === 80)">
             <p>The grade is 'B'.</p>
           </div>
           <!-- v-else-if comparing grade and 70 -->
-          <div>
+          <div v-else-if="(grade === 70)">
             <p>The grade is 'C'.</p>
           </div>
           <!-- v-else-if comparing grade and 60 -->
-          <div>
+          <div v-else-if="(grade === 60)">
             <p>The grade is 'D'.</p>
           </div>
           <!-- v-else to display if all the others fail -->
-          <div>
+          <div v-else>
             <p>The grade is 'F'.</p>
           </div>
         </div>
@@ -125,7 +125,7 @@
 import { reactive } from "vue";
 
 export default {
-  name: "condtional-rendering-exercise",
+  name: "conditional-rendering-exercise",
   setup() {
     // NOTE typically state will be abstracted to a global AppState
     const state = reactive({
@@ -136,6 +136,9 @@ export default {
         name: "Mick",
         position: "WR",
         number: 4,
+        showPlayer: true,
+        grade: 50
+
       },
     });
     return {
