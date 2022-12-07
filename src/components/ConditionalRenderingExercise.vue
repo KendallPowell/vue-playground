@@ -93,7 +93,7 @@
             Change the v-if directive to a v-show on the "player-card" element
             below.
           </p>
-          <div class="player-card text-center area" v-show="state.player.id">
+          <div class="player-card text-center area" v-show="state.player.number">
             <div>
               <img :src="state.player.photo" />
             </div>
@@ -137,7 +137,8 @@ export default {
         position: "WR",
         number: 4,
         showPlayer: true,
-        grade: 50
+        grade: 80
+
 
       },
     });
